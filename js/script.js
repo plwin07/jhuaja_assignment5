@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutPageHtml = "snippets/about-snippet.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -159,7 +160,52 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+dc.loadAboutPage = function() {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutPageHtml,
+    function(aboutHtml) {
+      insertHtml("#main-content", aboutHtml);
+      var ran = getRandomNum();
+      if (ran == 1) {
+        document.querySelector("#star1").className = "fa fa-star";
+        document.querySelector("#star2").className = "fa fa-star-o";
+        document.querySelector("#star3").className = "fa fa-star-o";
+        document.querySelector("#star4").className = "fa fa-star-o";
+        document.querySelector("#star5").className = "fa fa-star-o";
+      } else if (ran == 2) {
+        document.querySelector("#star1").className = "fa fa-star";
+        document.querySelector("#star2").className = "fa fa-star";
+        document.querySelector("#star3").className = "fa fa-star-o";
+        document.querySelector("#star4").className = "fa fa-star-o";
+        document.querySelector("#star5").className = "fa fa-star-o";
+      } else if ( ran == 3) {
+        document.querySelector("#star1").className = "fa fa-star";
+        document.querySelector("#star2").className = "fa fa-star";
+        document.querySelector("#star3").className = "fa fa-star";
+        document.querySelector("#star4").className = "fa fa-star-o";
+        document.querySelector("#star5").className = "fa fa-star-o";
+      } else if (ran == 4) {
+        document.querySelector("#star1").className = "fa fa-star";
+        document.querySelector("#star2").className = "fa fa-star";
+        document.querySelector("#star3").className = "fa fa-star";
+        document.querySelector("#star4").className = "fa fa-star";
+        document.querySelector("#star5").className = "fa fa-star-o";
+      } else if (ran == 5) {
+        document.querySelector("#star1").className = "fa fa-star";
+        document.querySelector("#star2").className = "fa fa-star";
+        document.querySelector("#star3").className = "fa fa-star";
+        document.querySelector("#star4").className = "fa fa-star";
+        document.querySelector("#star5").className = "fa fa-star";       
+      }
 
+    }, false
+  )
+}
+
+function getRandomNum() {
+  return Math.floor((Math.random() * 5) + 1);
+}
 // Builds HTML for the categories page based on the data
 // from the server
 function buildAndShowCategoriesHTML (categories) {

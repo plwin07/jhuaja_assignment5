@@ -167,6 +167,8 @@ dc.loadAboutPage = function() {
     function(aboutHtml) {
       insertHtml("#main-content", aboutHtml);
       var ran = getRandomNum();
+      var htmlInsert = "<p>" + ran + " stars</p>";
+      insertHtml("#star_text", htmlInsert);
       if (ran == 1) {
         document.querySelector("#star1").className = "fa fa-star";
         document.querySelector("#star2").className = "fa fa-star-o";
@@ -196,7 +198,7 @@ dc.loadAboutPage = function() {
         document.querySelector("#star2").className = "fa fa-star";
         document.querySelector("#star3").className = "fa fa-star";
         document.querySelector("#star4").className = "fa fa-star";
-        document.querySelector("#star5").className = "fa fa-star";       
+        document.querySelector("#star5").className = "fa fa-star";
       }
 
     }, false
